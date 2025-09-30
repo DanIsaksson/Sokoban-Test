@@ -1,0 +1,7 @@
+# ASP.NET Core Web App
+bin/
+obj/
+
+# Json
+[Properties]
+launchSettings.json

@@ -21,6 +21,15 @@ var Entities = {
     P = Player starting position
     G = Goal area for the blocks
 */
+/*  tileMap01.mapGrid is a 2D array representation of a Sokoban level
+    Each sub-array represents a row in the level, and each element in the sub-array represents a tile in that row
+    The element values are strings, where:
+        ' ' represents an empty space
+        'W' represents a wall tile
+        'B' represents a movable block
+        'P' represents the player starting position
+        'G' represents a goal area for the blocks
+*/
 var tileMap01 = {
     width: 19,
     height: 16,

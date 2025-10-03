@@ -80,6 +80,8 @@ body {
 
 /* Player - light yellow */
 .entity-player {
+    width: 90%;
+    height: 90%;
     background-color: #ffffe0;
     border: 2px solid #ffff00;
     border-radius: 50%;

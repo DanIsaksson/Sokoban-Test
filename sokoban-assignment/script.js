@@ -232,18 +232,40 @@ function pushBlock(blockIndex, rowDelta, colDelta) {
         createEntity(newTile, Entities.Block); // Regular grey block
     }
     
+    // Check if the player has won after this push
+    checkWinCondition();
+    
     return true; // Push succeeded
 }
 
 // ========================================
-// PLACEHOLDER: Win condition check (to be implemented)
+// FUNCTION: Check if the player has won
 // ========================================
-// function checkWinCondition() {
-//     // 1. Loop through all blocks
-//     // 2. For each block, check if it's on a goal position
-//     // 3. If all blocks are on goals, player wins!
-//     // 4. Display win message in gameInfo
-// }
+function checkWinCondition() {
+    // Count how many blocks are on goal positions
+    let blocksOnGoals = 0;
+    
+    // Loop through all blocks
+    for (let i = 0; i < blocks.length; i++) {
+        // Check if this block is on a goal
+        if (isGoalAt(blocks[i].row, blocks[i].col)) {
+            blocksOnGoals++;
+        }
+    }
+    
+    // If all blocks are on goals, the player wins!
+    if (blocksOnGoals === blocks.length) {
+        gameInfo.textContent = '🎉 YOU WIN! All blocks are on goals! 🎉';
+        gameInfo.style.color = '#00ff00'; // Green text
+        return true;
+    } else {
+        // Update the display with how many blocks are left
+        const remaining = blocks.length - blocksOnGoals;
+        gameInfo.textContent = `Blocks remaining: ${remaining}`;
+        gameInfo.style.color = 'white';
+        return false;
+    }
+}
 
 // ========================================
 // START THE GAME when page loads
